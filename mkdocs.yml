@@ -1,0 +1,65 @@
+site_name: typed-proxy
+site_url: https://typed-proxy.readthedocs.io
+site_author: Jonghwan Hyeon
+site_description: A metaclass for creating proxy objects
+
+repo_url: https://github.com/jonghwanhyeon/typed-proxy
+repo_name: jonghwanhyeon/typed-proxy
+
+nav:
+  - index.md
+  - api.md
+
+theme:
+  name: material
+  palette:
+    primary: deep purple
+  icon:
+    logo: fontawesome/solid/arrows-turn-to-dots
+    repo: simple/github
+  features:
+    - content.code.annotate
+
+extra_css:
+  - extra/stylesheet.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          import:
+            - https://docs.python.org/3/objects.inv
+            - https://typing-extensions.readthedocs.io/en/latest/objects.inv
+          options:
+            # general
+            show_bases: false
+            show_source: true
+            # headings
+            show_root_heading: true
+            show_root_full_path: false
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            # members
+            inherited_members: true
+            members_order: alphabetical
+            # signatures
+            show_signature: true
+            show_signature_annotations: true
+            separate_signature: true
+            signature_crossrefs: true
+            extensions:
+              - griffe_modernized_annotations
+              - griffe_generics
+
+watch:
+  - proxy
